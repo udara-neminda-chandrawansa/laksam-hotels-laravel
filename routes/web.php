@@ -35,17 +35,17 @@ Route::get('/about', function () {
     $roomTypes = App\Models\RoomType::where('is_active', true)->get();
     return view('public-site.about', compact('roomTypes'));
 });
-Route::get('/services', function () {
+Route::get('/rooms', function () {
     $roomTypes = App\Models\RoomType::where('is_active', true)->get();
-    return view('public-site.services', compact('roomTypes'));
+    return view('public-site.rooms', compact('roomTypes'));
 });
-Route::get('/packages', function () {
-    $tourPackages = App\Models\TourPackage::where('is_active', true)->get();
-    return view('public-site.packages', compact('tourPackages'));
+Route::get('/restaurant', function () {
+    $roomTypes = App\Models\RoomType::where('is_active', true)->get();
+    return view('public-site.restaurant', compact('roomTypes'));
 });
-Route::get('/gallery', function () {
-    return view('public-site.gallery');
-});
+// Route::get('/gallery', function () {
+//     return view('public-site.gallery');
+// });
 Route::get('/contact', function () {
     return view('public-site.contact');
 });

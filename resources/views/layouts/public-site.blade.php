@@ -1,86 +1,398 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>
-    King Castle, Lake Front By Laksam
-  </title>
-  <meta name="author" content="King Castle" />
-  <meta name="description" content="Experience luxury and comfort at King Castle, Lake Front By Laksam" />
-  <meta name="keywords" content="King Castle" />
-  <meta name="robots" content="INDEX,FOLLOW" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
-  <meta name="msapplication-TileColor" content="#ffffff" />
-  <meta name="msapplication-TileImage" content="{{ asset('assets/img/logo.png') }}" />
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link rel="shortcut icon" href="{{ asset('assets/img/logo.png') }}" type="image/x-icon">
-  <meta property="og:image" content="{{ asset('assets/img/logo.png') }}" />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="preconnect" href="https://fonts.googleapis.com/" />
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}" />
-  <link rel="stylesheet" href="{{ asset('assets/css/fontawesome.min.css') }}" />
-  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/room-grid-component.css') }}" />
-  <style>
-    * {
-      font-family: "Cinzel", sans-serif;
-    }
-
-    .gallery-row .col-md-6 {
-      padding: 0px 3px;
-      margin: 0px;
-      margin-bottom: 6px;
-    }
-
-    .row.gy-4 .col-lg-6 {
-      padding: 0px 3px;
-      margin-top: 6px;
-      aspect-ratio: 16/9;
-
-      div div img {
-        object-fit: cover;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .row.gy-4 .col-lg-6 {
-        aspect-ratio: 1/1;
-      }
-    }
-  </style>
+    <!-- ========== Meta Tags ========== -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Silicon Radon Networks (Pvt) Ltd">
+    <meta name="description" content="Laksam Hotels (Pvt) Ltd">
+    <meta name="og:image" content="{{ asset('assets/img/favicon.png') }}">
+    <!-- ======== Page title ============ -->
+    <title>Laksam Hotels (Pvt) Ltd</title>
+    <!--<< Favcion >>-->
+    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.png') }}" type="image/x-icon">
+    <!--<< Bootstrap min.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <!--<< All Min Css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}">
+    <!--<< Animate.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+    <!--<< Magnific Popup.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+    <!--<< MeanMenu.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.css') }}">
+    <!--<< Swiper Bundle.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
+    <!--<< Nice Select.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
+    <!--<< Expose Font.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/expose.css') }}">
+    <!--<< Main.css >>-->
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 </head>
 
-<body>
-  <div class="slider-drag-cursor">
-    <i class="fal fa-arrows-up-down-left-right"></i>
-  </div>
+<body class="body-bg">
 
-  @include('partials.public-header')
+    <!-- Back To Top start -->
+    <!-- <button id="back-top" class="back-to-top">
+            <i class="fa-regular fa-arrow-up"></i>
+        </button> -->
 
-  @yield('content')
+    <!-- Offcanvas Area Start -->
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-4 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="/">
+                                <img src="{{ asset('assets/img/logo.png') }}" alt="logo-img" style="width: 100px;">
+                            </a>
+                        </div>
+                        <div class="offcanvas__close" style="height: fit-content !important;">
+                            <button>
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon">
+                                    <i class="fal fa-map-marker-alt"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a target="_blank" href="#">No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri
+                                        Lanka</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fal fa-envelope"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="mailto:info@laksam.lk"><span
+                                            class="mailto:info@laksam.lk">info@laksam.lk</span></a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="fal fa-clock"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a target="_blank" href="#">Open 24 hours</a>
+                                </div>
+                            </li>
+                            <li class="d-flex align-items-center">
+                                <div class="offcanvas__contact-icon mr-15">
+                                    <i class="far fa-phone"></i>
+                                </div>
+                                <div class="offcanvas__contact-text">
+                                    <a href="tel:0777611290" class="d-block">0777 611 290</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="header-button mt-4">
+                            <a href="#"
+                                class="theme-btn d-inline-flex justify-content-center align-items-center gap-xxl-2 gap-2 fs-16 rounded-1 fw-500 black-clr overflow-hidden">
+                                Get in Touch
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        <div class="social-icon d-flex align-items-center">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  @include('partials.public-footer')
+    <div class="offcanvas__overlay"></div>
 
-  <!--scroll to top-->
-  <div class="scroll-top">
-    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="
-            transition: stroke-dashoffset 10ms linear 0s;
-            stroke-dasharray: 307.919, 307.919;
-            stroke-dashoffset: 307.919;
-          "></path>
-    </svg>
-  </div>
-  <script src="{{ asset('assets/js/vendor/jquery-3.7.1.min.js') }}"></script>
-  <script src="{{ asset('assets/js/app.min.js') }}"></script>
-  <script src="{{ asset('assets/js/main.js') }}"></script>
+    <!-- Header Top Section Start -->
+    <div class="header-top-section style3 d-lg-block d-none overflow-hidden {{ request()->is('/') ? '' : 'd-lg-none' }}">
+        <div class="container">
+            <div class="header-top-wrapper">
+                <a href="#" class="located d-flex align-items-center gap-2 fs-14">
+                    <i class="fa-solid fa-location-dot"></i> No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka
+                </a>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:0777611290" class="link">0777 611 290</a>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info@laksam.lk" class="link">info@laksam.lk</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section Start -->
+    <header id="header-sticky" class="header-1 bg-transparent white-variation">
+        <div class="container">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo">
+                            <a href="/" class="header-logo">
+                                <img src="{{ asset('assets/img/logo-white.png') }}" alt="logo-img">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li class="">
+                                            <a href="/">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/about">About Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="/rooms">
+                                                Rooms
+                                                <i class="fas fa-angle-down"></i>
+                                            </a>
+                                            <ul class="submenu">
+                                                <li><a href="/room-details/1">Single Room</a></li>
+                                                <li><a href="/room-details/1">Single Room</a></li>
+                                                <li><a href="/room-details/1">Single Room</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="/restaurant">RESTAURANT</a>
+                                        </li>
+                                        <li>
+                                            <a href="/contact">Contact</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header__hamburger d-lg-none my-auto">
+                            <div class="sidebar__toggle">
+                                <img src="{{ asset('assets/img/icon/bars.png') }}" alt="icon">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-lg-flex d-none align-items-center gap-xxl-4 gap-3">
+                        <button type="button" class="destop-bars sidebar__toggle">
+                            <img src="{{ asset('assets/img/icon/bars.png') }}" alt="img">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    @yield('content')
+
+
+    <!-- Footer section start -->
+    <footer class="footer-section footer-style2 fix white-bg">
+        <div class="container">
+            <div class="footer-widget-wrapper">
+                <div class="row g-5">
+                    <div class="col-xl-3 col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay=".2s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head">
+                                <a href="/">
+                                    <img src="{{ asset('assets/img/logo.png') }}" alt="logo-img" style="width: 100px;">
+                                </a>
+                            </div>
+                            <div class="footer-content">
+                                <p class="fs-16 black-clr">
+                                    An exceptional fusion of timeless Sri Lankan charm and modern elegance.
+                                </p>
+                                <form action="#" class="adjust-form d-flex align-items-center">
+                                    <input type="text" placeholder="Enter your mail">
+                                    <button type="submit" class="theme-btn py-2 px-2 d-center">
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </button>
+                                </form>
+                                <div class="social-cmn d-flex align-items-center gap-2 wow fadeInUp"
+                                    data-wow-delay=".5s">
+                                    <a href="#" class="d-center rounded-circle"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="d-center rounded-circle"><i
+                                            class="fa-brands fa-instagram"></i></a>
+                                    <a href="#" class="d-center rounded-circle"><i
+                                            class="fa-brands fa-whatsapp"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-sm-center col-xl-3 col-lg-3 col-sm-6 wow fadeInUp"
+                        data-wow-delay=".4s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head fs-20 black-clr fw-semibold">
+                                Quick Links
+                            </div>
+                            <ul class="important-link d-grid gap-sm-2 gap-1">
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="#">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Our Rooms</a>
+                                </li>
+                                <li>
+                                    <a href="#">Restaurant</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact Us</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-sm-center col-xl-3 col-lg-3 col-sm-6 wow fadeInUp"
+                        data-wow-delay=".3s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head fs-20 black-clr fw-semibold">
+                                Information
+                            </div>
+                            <ul class="adredd-info d-grid gap-xxl-4 gap-xl-3 gap-2">
+                                <li class="d-flex align-items-center gap-xl-3 gap-2">
+                                    <svg width="20" height="24" viewBox="0 0 20 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M18.9998 10.0608C18.9998 16.8486 10.3332 22.6668 10.3332 22.6668C10.3332 22.6668 1.6665 16.8486 1.6665 10.0608C1.6665 7.74615 2.5796 5.52634 4.20491 3.88965C5.83023 2.25297 8.03463 1.3335 10.3332 1.3335C12.6317 1.3335 14.8361 2.25297 16.4614 3.88965C18.0867 5.52634 18.9998 7.74615 18.9998 10.0608Z"
+                                            stroke="white" stroke-width="1.73333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M10.3332 12.9699C11.9287 12.9699 13.2221 11.6674 13.2221 10.0608C13.2221 8.45412 11.9287 7.15168 10.3332 7.15168C8.73768 7.15168 7.44428 8.45412 7.44428 10.0608C7.44428 11.6674 8.73768 12.9699 10.3332 12.9699Z"
+                                            stroke="white" stroke-width="1.73333" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    <a href="#">
+                                        No:30, Gemunu Pura, Magasthota, Nuwara Eliya
+                                    </a>
+                                </li>
+                                <li class="d-flex align-items-center gap-xl-3 gap-2">
+                                    <svg width="20" height="24" viewBox="0 0 694 694" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M522.484 691.077C455.147 674.207 317.297 626.644 192.326 501.674C67.3552 376.704 19.7936 238.853 2.92257 171.517C-6.77276 132.82 10.6862 95.4782 40.2899 74.3326L117.898 18.8979C163.308 -13.5371 226.478 -2.53076 258.242 43.3506L307.1 113.926C327.84 143.884 320.687 184.944 291.037 206.122L252.078 233.95C257.975 256.504 276.313 302.82 333.747 360.254C391.18 417.687 437.497 436.024 460.05 441.92L487.877 402.96C509.057 373.314 550.117 366.157 580.074 386.897L650.65 435.757C696.53 467.524 707.537 530.69 675.1 576.1L619.667 653.71C598.52 683.314 561.18 700.774 522.484 691.077ZM239.466 454.534C353.114 568.18 478.527 611.337 538.684 626.41C547.477 628.61 558.107 625.194 565.417 614.96L620.854 537.35C631.664 522.217 627.997 501.16 612.7 490.57L542.127 441.71L512.264 483.52C500.06 500.607 477.49 514.007 451.21 508.337C418.41 501.26 357.777 478.564 286.607 407.394C215.437 336.224 192.74 275.59 185.663 242.79C179.993 216.51 193.394 193.941 210.48 181.736L252.288 151.873L203.429 81.2979C192.841 66.0039 171.784 62.3352 156.648 73.1469L79.0392 128.582C68.8046 135.892 65.3876 146.522 67.5906 155.315C82.6632 215.473 125.82 340.887 239.466 454.534Z"
+                                            fill="#000" />
+                                    </svg>
+
+
+                                    <a href="#">
+                                        0777 611 290
+                                    </a>
+                                </li>
+                                <li class="d-flex align-items-center gap-xl-3 gap-2">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_1_2476)">
+                                            <path
+                                                d="M12.0002 5.60006V12.0001L16.2668 14.1334M22.6668 12.0002C22.6668 17.8912 17.8912 22.6668 12.0002 22.6668C6.10912 22.6668 1.3335 17.8912 1.3335 12.0002C1.3335 6.10912 6.10912 1.3335 12.0002 1.3335C17.8912 1.3335 22.6668 6.10912 22.6668 12.0002Z"
+                                                stroke="white" stroke-width="1.6" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_1_2476">
+                                                <rect width="24" height="24" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    <a href="#">
+                                        Mon – Sat: 8 am – 5 pm,
+                                        <span class="d-flex align-items-center gap-1 fs-16 black-clr">
+                                            Sunday: <span class="black-clr fw-500 text-uppercase">CLOSED</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-sm-center col-xl-3 col-lg-3 col-sm-6 wow fadeInUp"
+                        data-wow-delay=".5s">
+                        <div class="single-footer-widget">
+                            <div class="widget-head fs-20 black-clr fw-semibold">
+                                Payments Methods
+                            </div>
+                            <p class="mb-4 fs-16 black-clr fw-500">
+                                Pay any way choose , No matter whether its cash or an international payment card ,
+                                we support all options.
+                            </p>
+                            <div class="d-flex align-items-center gap-xxl-3 gap-2 flex-wrap">
+                                <button type="button">
+                                    <img src="{{ asset('assets/img/hero/payneer.png') }}" alt="payment">
+                                </button>
+                                <button type="button">
+                                    <img src="{{ asset('assets/img/hero/master.png') }}" alt="payment">
+                                </button>
+                                <button type="button">
+                                    <img src="{{ asset('assets/img/hero/paypal.png') }}" alt="payment">
+                                </button>
+                                <button type="button">
+                                    <img src="{{ asset('assets/img/hero/app-master.png') }}" alt="payment">
+                                </button>
+                                <button type="button">
+                                    <img src="{{ asset('assets/img/hero/stripe.png') }}" alt="payment">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-bottom fs-16 text-center">
+                2025 © All Rights Reserved | Laksam Hotels | Designed & Developed by Silicon Radon Networks (Pvt) Ltd.
+            </p>
+        </div>
+    </footer>
+
+    <!--Messenger and WhatsApp Floating btns-->
+    <a href="https://m.me/94777611290" class="float" style="z-index: 999999;">
+        <i class="fa-brands fa-facebook-messenger my-float"></i>
+    </a>
+    <script async src='https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js'></script>
+    <script>
+        var wa_btnSetting = { "btnColor": "#16BE45", "ctaText": "", "cornerRadius": 40, "marginBottom": 20, "marginLeft": 20, "marginRight": 20, "btnPosition": "right", "whatsAppNumber": "94777611290", "welcomeMessage": "Hello! How can we help you today?", "zIndex": 999999, "btnColorScheme": "light" };
+        window.onload = () => {
+            _waEmbed(wa_btnSetting);
+        };
+    </script>
+
+    <!--<< All JS Plugins >>-->
+    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
+    <!--<< Viewport Js >>-->
+    <script src="{{ asset('assets/js/viewport.jquery.js') }}"></script>
+    <!--<< Bootstrap Js >>-->
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <!--<< Nice Select Js >>-->
+    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+    <!--<< Waypoints Js >>-->
+    <script src="{{ asset('assets/js/jquery.waypoints.js') }}"></script>
+    <!--<< Counterup Js >>-->
+    <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+    <!--<< Swiper Slider Js >>-->
+    <script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+    <!--<< MeanMenu Js >>-->
+    <script src="{{ asset('assets/js/jquery.meanmenu.min.js') }}"></script>
+    <!--<< Magnific Popup Js >>-->
+    <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <!--<< Wow Animation Js >>-->
+    <script src="{{ asset('assets/js/wow.min.js') }}"></script>
+    <!--<< Main.js >>-->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>
