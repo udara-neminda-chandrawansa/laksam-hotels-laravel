@@ -147,7 +147,7 @@
                             </div>
                         </div>
                         <div class="book-form text-center">
-                            <a href="/create-booking"
+                            <a href="/book-room"
                                 class="theme-btn py-sm-3 py-3 fw-normal text-capitalize gap-1 px-sm-4 px-4">
                                 Check Availability
                             </a>

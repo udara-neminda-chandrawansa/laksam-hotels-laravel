@@ -128,7 +128,7 @@ class BookingController extends Controller
             'children' => $children
         ];
 
-        return view('public-site.booking-form', compact('roomTypes', 'selectedRoom', 'bookingData'));
+        return view('public-site.create-booking', compact('roomTypes', 'selectedRoom', 'bookingData'));
     }
 
     public function create(Request $request)
@@ -176,7 +176,7 @@ class BookingController extends Controller
             'children' => $children
         ];
 
-        return view('public-site.booking-form', compact('roomTypes', 'selectedRoom', 'bookingData'));
+        return view('public-site.create-booking', compact('roomTypes', 'selectedRoom', 'bookingData'));
     }
 
 
@@ -532,14 +532,14 @@ class BookingController extends Controller
         $roomTypes = RoomType::where('is_active', true)->get();
 
         $booking = Booking::find($request->order_id);
-        return view('public-site.services', compact('booking', 'roomTypes'));
+        return view('public-site.rooms', compact('booking', 'roomTypes'));
     }
 
     public function handleCancel(Request $request)
     {
 
         $booking = Booking::find($request->order_id);
-        return view('public-site.services', compact('booking'));
+        return view('public-site.rooms', compact('booking'));
     }
 
     /**
