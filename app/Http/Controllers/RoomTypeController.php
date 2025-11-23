@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\RoomType;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class RoomTypeController extends Controller
@@ -52,7 +53,7 @@ class RoomTypeController extends Controller
             });
 
             // Handle image upload
-            $imagePath = 'assets/img/drive-images-2-webp/kc1.webp'; // Default image
+            $imagePath = ''; // Default image
             if ($request->hasFile('image_file')) {
                 // Generate unique filename - prefer WebP but fallback to JPG
                 $webpSupported = function_exists('imagewebp');
@@ -89,20 +90,22 @@ class RoomTypeController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
+
+            Log::error('Error creating room type: ' . $e->getMessage());
             
             return back()->withInput()
-                         ->with('error', 'Failed to create room type. Please try again.');
+                         ->with('error', $e->getMessage());
         }
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(RoomType $roomType)
-    {
-        $roomType->load(['bookings', 'roomImages']);
-        return view('admin-dashboard.room-types.show', compact('roomType'));
-    }
+    // public function show(RoomType $roomType)
+    // {
+    //     $roomType->load(['bookings', 'roomImages']);
+    //     return view('admin-dashboard.room-types.show', compact('roomType'));
+    // }
 
     /**
      * Show the form for editing the specified resource.

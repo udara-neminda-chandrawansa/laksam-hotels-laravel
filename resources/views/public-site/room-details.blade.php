@@ -7,7 +7,7 @@
     <div class="container">
         <div class="breadcrumb-content">
             <h2 class="white-clr text-center">
-                Lake View Luxury Room
+                {{ $roomType->name }}
             </h2>
         </div>
     </div>
@@ -21,29 +21,20 @@
                 <!-- Room Carousel -->
                 <div id="roomCarousel" class="carousel slide room-carousel mb-5" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="0"
-                            class="active"></button>
-                        <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="2"></button>
-                        <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="0" class="active"></button>
+                        @foreach ( $roomType->roomImages as $image)
+                        <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="{{ $loop->iteration }}"></button>
+                        @endforeach
                     </div>
                     <div class="carousel-inner rounded-3">
                         <div class="carousel-item active">
-                            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                class="d-block w-100" alt="Deluxe Suite">
+                        <img src="{{ asset($roomType->image_path) }}" class="d-block w-100" alt="main image">
                         </div>
+                        @foreach ( $roomType->roomImages as $image)
                         <div class="carousel-item">
-                            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                class="d-block w-100" alt="Deluxe Suite Bathroom">
+                            <img src="{{ asset($image->image_path) }}" class="d-block w-100" alt="sub image">
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                class="d-block w-100" alt="Deluxe Suite View">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                                class="d-block w-100" alt="Deluxe Suite Sitting Area">
-                        </div>
+                        @endforeach
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel"
                         data-bs-slide="prev">
@@ -58,35 +49,19 @@
                 <!-- Room Description -->
                 <div class="mb-5">
                     <h2 class="mb-4">Room Description</h2>
-                    <p class="lead">Our Lake View Luxury Room offers boutique comfort and stunning Gregory Lake views,
-                        making your stay in Nuwara Eliya truly memorable.</p>
-                    <p>Spacious and elegantly designed, each room features a king-size bed, private balcony, and
-                        spa-style bath. Enjoy modern amenities, complimentary WiFi, and the tranquility of the
-                        highlands.</p>
-                    <p>Wake up to misty mornings and relax in a setting that blends Sri Lankan charm with contemporary
-                        luxury.</p>
+                    <p class="lead">
+                        {{ $roomType->description }}
+                    </p>
                 </div>
 
                 <!-- Features & Amenities -->
                 <div class="row mb-5">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <h3 class="mb-4">Room Features</h3>
                         <ul class="amenities-list">
-                            <li><i class="fas fa-bed"></i> King-size bed with premium linens</li>
-                            <li><i class="fas fa-tv"></i> 42" Smart TV with international channels</li>
-                            <li><i class="fas fa-wifi"></i> Complimentary high-speed WiFi</li>
-                            <li><i class="fas fa-snowflake"></i> Individually controlled air conditioning</li>
-                            <li><i class="fas fa-coffee"></i> Nespresso coffee machine</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 class="mb-4">Bathroom Amenities</h3>
-                        <ul class="amenities-list">
-                            <li><i class="fas fa-bath"></i> Rainfall shower & soaking tub</li>
-                            <li><i class="fas fa-tshirt"></i> Plush bathrobes & slippers</li>
-                            <li><i class="fas fa-toilet-paper"></i> Premium toiletries</li>
-                            <li><i class="fas fa-user-hair-long"></i> Hair dryer</li>
-                            <li><i class="fas fa-weight-hanging"></i> Bathroom scale</li>
+                            @foreach ($roomType->amenities as $amenity)
+                                <li><i class="fas fa-check-circle"></i> {{ $amenity }}</li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -174,28 +149,29 @@
                 <div class="card shadow-sm sticky-top" style="top: 20px;">
                     <div class="card-body">
                         <h3 class="card-title mb-4" id="booking">Book This Room</h3>
-                        <form action="/book-room">
+                        <form action="/check-availability" method="POST">
+                            @csrf
                             <div class="mb-3">
                                 <label for="checkIn" class="form-label">Check-in Date</label>
-                                <input type="date" class="form-control" id="checkIn">
+                                <input type="date" class="form-control" id="checkIn" name="check_in">
                             </div>
                             <div class="mb-3">
                                 <label for="checkOut" class="form-label">Check-out Date</label>
-                                <input type="date" class="form-control" id="checkOut">
+                                <input type="date" class="form-control" id="checkOut" name="check_out">
                             </div>
                             <div class="mb-3 d-flex align-items-center">
                                 <label for="adults" class="form-label w-50 m-0">Adults</label>
-                                <input type="number" id="adults" min="1" value="1" class="form-control w-50">
+                                <input type="number" id="adults" min="1" value="1" class="form-control w-50" name="adults">
                             </div>
                             <div class="mb-3 d-flex align-items-center">
                                 <label for="children" class="form-label w-50 m-0">Children</label>
-                                <input type="number" id="children" min="0" value="0" class="form-control w-50">
+                                <input type="number" id="children" min="0" value="0" class="form-control w-50" name="children">
                             </div>
                             <div class="d-grid gap-2 mb-3">
                                 <button type="submit" class="btn btn-primary btn-lg">Check Availability</button>
                             </div>
                             <div class="text-center">
-                                <p class="mb-1"><strong>Rs. 1890.00</strong> <small>per night</small></p>
+                                <p class="mb-1"><strong>Rs. {{ $roomType->price_per_night }}</strong> <small>per night</small></p>
                                 <p class="text-muted small">+ taxes and fees</p>
                             </div>
                         </form>
@@ -225,7 +201,7 @@
                         <h4 class="card-title mb-3">Need Help?</h4>
                         <p><i class="fas fa-phone me-2"></i> 0777 611 290</p>
                         <p><i class="fas fa-envelope me-2"></i> info@laksam.lk</p>
-                        <p><i class="fas fa-map-marker-alt me-2"></i> No:10, Louis Peiris Mawatha, Kandy</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> No:30, Gemunu Pura, Magasthota, Nuwara Eliya</p>
                         <a href="/contact" class="btn btn-outline-primary w-100 mt-2">Contact Us</a>
                     </div>
                 </div>

@@ -12,7 +12,7 @@ use App\Http\Controllers\TourBookingController;
 Route::get('/run-migrations', function () {
     try {
         Artisan::call('migrate', ['--force' => true]);
-        // Artisan::call('db:seed', ['--force' => true]);
+        Artisan::call('db:seed', ['--force' => true]);
 
         return response()->json([
             'status' => 'success',
@@ -47,23 +47,28 @@ Route::get('/restaurant', function () {
 //     return view('public-site.gallery');
 // });
 Route::get('/contact', function () {
-    return view('public-site.contact');
+    $roomTypes = App\Models\RoomType::where('is_active', true)->get();
+    return view('public-site.contact', compact('roomTypes'));
 });
 Route::get('/room-details/{id}', function ($id) {
     $roomType = App\Models\RoomType::with('roomImages')->findOrFail($id);
-    return view('public-site.room-details', compact('roomType'));
+    $roomTypes = App\Models\RoomType::where('is_active', true)->get();
+    return view('public-site.room-details', compact('roomType', 'roomTypes'));
 })->name('room-details');
 
 Route::get('/privacy-policy', function () {
-    return view('public-site.policies.privacy-policy');
+    $roomTypes = App\Models\RoomType::where('is_active', true)->get();
+    return view('public-site.policies.privacy-policy', compact('roomTypes'));
 })->name('privacy.policy');
 
 Route::get('/return-policy', function () {
-    return view('public-site.policies.return-policy');
+    $roomTypes = App\Models\RoomType::where('is_active', true)->get();
+    return view('public-site.policies.return-policy', compact('roomTypes'));
 })->name('return.policy');
 
 Route::get('/terms-conditions', function () {
-    return view('public-site.policies.terms-conditions');
+    $roomTypes = App\Models\RoomType::where('is_active', true)->get();
+    return view('public-site.policies.terms-conditions', compact('roomTypes'));
 })->name('terms.conditions');
 
 

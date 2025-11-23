@@ -25,84 +25,36 @@
             </div>
         </div>
         <div class="row g-md-4 g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-single-item white-bg wow fadeInUp" data-wow-delay=".4s">
-                    <a href="#" class="thumb d-block mb-4 w-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Royal Suite" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <span class="text-clr fs-16 fw-bold d-block mb-1">King Bed</span>
-                        <h3 class="mb-sm-4 mb-3">
-                            <a href="#" class="fw-semibold d-block black-clr">Royal Kandy Suite</a>
-                        </h3>
-                        <ul class="blog-admin d-flex align-items-center gap-3 mb-4 pb-xxl-2">
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-users"></i> 2 Guests
-                            </li>
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-coffee"></i> Breakfast
-                            </li>
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-expand-arrows-alt"></i> 450sq ft
-                            </li>
-                        </ul>
-                        <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">Book Now</a>
+            @foreach ($roomTypes as $roomType)
+                <div class="col-md-6 col-lg-4">
+                    <div class="luxries-single-item white-bg wow fadeInUp" data-wow-delay=".4s">
+                        <a href="/room-details/{{ $roomType->id }}" class="thumb d-block mb-4 w-100 overflow-hidden aspect-video">
+                            <img src="{{ $roomType->image_path }}"
+                                alt="Royal Suite" class="w-100 overflow-hidden">
+                        </a>
+                        <div class="content">
+                            <span class="text-clr fs-16 fw-bold d-block mb-1">{{ $roomType->price_per_night }}</span>
+                            <h3 class="mb-sm-4 mb-3">
+                                <a href="#" class="fw-semibold d-block black-clr">{{ $roomType->name }}</a>
+                            </h3>
+                            <ul class="blog-admin d-flex align-items-center gap-3 mb-4 pb-xxl-2">
+                                <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
+                                    <i class="fas fa-users"></i> {{ $roomType->max_occupancy }} Guests
+                                </li>
+                                <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
+                                    <i class="fas fa-star"></i> {{ $roomType->amenities[0] }}
+                                </li>
+                                {{ isset($roomType->amenities[1]) ?
+                                '<li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
+                                    <i class="fas fa-star"></i> $roomType->amenities[1]
+                                </li>'
+                                : '' }}
+                            </ul>
+                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">Book Now</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-single-item white-bg wow fadeInUp" data-wow-delay=".6s">
-                    <a href="#" class="thumb d-block mb-4 w-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Garden View" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <span class="text-clr fs-16 fw-bold d-block mb-1">Twin Beds</span>
-                        <h3 class="mb-sm-4 mb-3">
-                            <a href="#" class="fw-semibold d-block black-clr">Garden View Deluxe</a>
-                        </h3>
-                        <ul class="blog-admin d-flex align-items-center gap-3 mb-4 pb-xxl-2">
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-users"></i> 2 Guests
-                            </li>
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-coffee"></i> Breakfast
-                            </li>
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-expand-arrows-alt"></i> 380sq ft
-                            </li>
-                        </ul>
-                        <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">Book Now</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-single-item white-bg wow fadeInUp" data-wow-delay=".7s">
-                    <a href="#" class="thumb d-block mb-4 w-100 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                            alt="Lake View Suite" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <span class="text-clr fs-16 fw-bold d-block mb-1">King Bed</span>
-                        <h3 class="mb-sm-4 mb-3">
-                            <a href="#" class="fw-semibold d-block black-clr">Kandy Lake Suite</a>
-                        </h3>
-                        <ul class="blog-admin d-flex align-items-center gap-3 mb-4 pb-xxl-2">
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-users"></i> 3 Guests
-                            </li>
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-coffee"></i> Breakfast
-                            </li>
-                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                <i class="fas fa-expand-arrows-alt"></i> 520sq ft
-                            </li>
-                        </ul>
-                        <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">Book Now</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -222,7 +174,5 @@
         </div>
     </div>
 </section>
-
-<hr>
 
 @endsection

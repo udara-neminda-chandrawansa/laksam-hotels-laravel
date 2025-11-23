@@ -169,9 +169,9 @@
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
                                             <ul class="submenu">
-                                                <li><a href="/room-details/1">Single Room</a></li>
-                                                <li><a href="/room-details/1">Single Room</a></li>
-                                                <li><a href="/room-details/1">Single Room</a></li>
+                                                @foreach ($roomTypes as $roomType)
+                                                    <li><a href="/room-details/{{ $roomType->id }}">{{ $roomType->name }}</a></li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li>
