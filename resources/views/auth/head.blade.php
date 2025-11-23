@@ -3,7 +3,7 @@
 
 <head>
     <!--Title-->
-    <title>Kings Castle | Authentication</title>
+    <title>Laksam Hotels | Authentication</title>
 
     <!-- Meta -->
     <meta charset="utf-8">

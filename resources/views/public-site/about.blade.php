@@ -205,7 +205,7 @@
 </section>
 
 <!-- Booking section start -->
-<section class="hotel-booking z-1 bg3 position-relative space-bottom">
+{{-- <section class="hotel-booking z-1 bg3 position-relative space-bottom">
     <div class="container pb-xl-5">
         <div class="row g-4 align-items-end">
             <div class="col-lg-5">
@@ -302,7 +302,7 @@
     <!-- Ele -->
     <img src="assets/img/element/suites-shape.png" alt="img" class="book-flower1 d-lg-block d-none">
     <img src="assets/img/element/suites-shape.png" alt="img" class="book-flower2">
-</section>
+</section> --}}
 
 <!-- Awards Section -->
 <section class="py-5 bg-dark text-white">

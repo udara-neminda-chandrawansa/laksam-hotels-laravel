@@ -31,7 +31,7 @@
                         </div>
 
                         <p class="mt-3 wow fadeInUp" data-wow-delay=".4s">
-                            Welcome to <strong>Kings Castle Hotels</strong>. By accessing or using our website
+                            Welcome to <strong>Laksam Hotels Hotels</strong>. By accessing or using our website
                             (<a href="{{ url('/') }}">{{ url('/') }}</a>), you agree to comply with the following
                             Terms and Conditions. Please read them carefully before making a reservation or using
                             our hospitality services.
@@ -39,9 +39,9 @@
 
                         <h4 class="mt-4 wow fadeInUp" data-wow-delay=".5s">1. General Information</h4>
                         <p class="wow fadeInUp" data-wow-delay=".6s">
-                            Kings Castle Hotels operates premium accommodation and hospitality services located in
+                            Laksam Hotels Hotels operates premium accommodation and hospitality services located in
                             Nuwara Eliya, Sri Lanka. All content, images, and materials on this website are owned or
-                            licensed by Kings Castle Hotels and are protected under intellectual property laws.
+                            licensed by Laksam Hotels Hotels and are protected under intellectual property laws.
                         </p>
 
                         <h4 class="mt-4 wow fadeInUp" data-wow-delay=".7s">2. Use of Website</h4>
@@ -69,7 +69,7 @@
                             to secure your reservation.
                         </p>
                         <p class="wow fadeInUp" data-wow-delay="1.3s">
-                            Kings Castle Hotels reserves the right to revise prices, promotional offers, or room
+                            Laksam Hotels Hotels reserves the right to revise prices, promotional offers, or room
                             availability at any time without prior notice.
                         </p>
 
@@ -97,7 +97,7 @@
 
                         <h4 class="mt-4 wow fadeInUp" data-wow-delay="2s">8. Liability</h4>
                         <p class="wow fadeInUp" data-wow-delay="2.1s">
-                            Kings Castle Hotels is not liable for loss or damage to personal belongings, accidents,
+                            Laksam Hotels Hotels is not liable for loss or damage to personal belongings, accidents,
                             or injuries that occur on the premises. We strongly recommend safeguarding your valuables
                             and following all safety guidelines during your stay.
                         </p>
@@ -118,7 +118,7 @@
 
                         <h4 class="mt-4 wow fadeInUp" data-wow-delay="2.6s">11. Amendments to Terms</h4>
                         <p class="wow fadeInUp" data-wow-delay="2.7s">
-                            Kings Castle Hotels reserves the right to update or modify these Terms & Conditions at any
+                            Laksam Hotels Hotels reserves the right to update or modify these Terms & Conditions at any
                             time. Updates will be posted on this page, and continued use of our website implies
                             acceptance of the latest terms.
                         </p>
@@ -130,14 +130,14 @@
                         </p>
 
                         <ul class="wow fadeInUp" data-wow-delay="2.9s">
-                            <li><strong>Kings Castle Hotels</strong></li>
+                            <li><strong>Laksam Hotels Hotels</strong></li>
                             <li>Address: No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</li>
-                            <li>Email: <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a></li>
+                            <li>Email: <a href="mailto:info@laksam.lk">info@laksam.lk</a></li>
                             <li>Phone: <a href="tel:+94767799721">+94 777 611 290</a></li>
                         </ul>
 
                         <p class="mt-4 wow fadeInUp" data-wow-delay="3s">
-                            Thank you for choosing <strong>Kings Castle Hotels</strong>. By staying with us, you agree
+                            Thank you for choosing <strong>Laksam Hotels Hotels</strong>. By staying with us, you agree
                             to these terms and enjoy a premium, transparent, and memorable hospitality experience.
                         </p>
                     </div>

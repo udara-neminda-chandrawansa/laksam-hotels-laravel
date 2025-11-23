@@ -85,7 +85,7 @@
                                                 <img src="{{ asset('images/user.jpg') }}" class="avatar avatar-md" alt="">
                                                 <div>
                                                     <h6>Admin</h6>
-                                                    <span>Kings Castle</span>
+                                                    <span>Laksam Hotels</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
 <div class="deznav">
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
-            <li class="menu-title">Kings Castle</li>
+            <li class="menu-title">Laksam Hotels</li>
             <li>
                 <a href="{{ route('dashboard') }}" class="" aria-expanded="false">
                     <div class="menu-icon">

@@ -4,7 +4,7 @@
 
 @section('header')
 <div class="header">
-    <h1>Kings Castle Hotel</h1>
+    <h1>Laksam Hotels</h1>
     <p>Email System Test</p>
 </div>
 @endsection

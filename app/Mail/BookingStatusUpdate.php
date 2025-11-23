@@ -33,7 +33,7 @@ class BookingStatusUpdate extends Mailable
     {
         $statusTitle = ucfirst($this->status);
         return new Envelope(
-            subject: "Booking {$statusTitle} - Kings Castle Hotel",
+            subject: "Booking {$statusTitle} - Laksam Hotels",
         );
     }
 

@@ -154,13 +154,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Kings Castle Hotel</h1>
+            <h1>Laksam Hotels</h1>
             <p>Tour Booking Confirmation</p>
         </div>
 
         <div class="content">
             <h2>Dear {{ $tourBooking->guest_name }},</h2>
-            <p>Thank you for choosing Kings Castle Hotel for your tour experience! We're delighted to confirm your tour booking.</p>
+            <p>Thank you for choosing Laksam Hotels for your tour experience! We're delighted to confirm your tour booking.</p>
 
             <div class="booking-info">
                 <h3>Booking Details</h3>
@@ -239,14 +239,14 @@
                     <li>Camera for memorable moments</li>
                 </ul>
 
-                <p>If you have any questions or need to make changes to your tour booking, please contact us at <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> or call us at +94 777 611 290.</p>
+                <p>If you have any questions or need to make changes to your tour booking, please contact us at <a href="mailto:info@laksam.lk">info@laksam.lk</a> or call us at +94 777 611 290.</p>
             </div>
         </div>
 
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Kings Castle Hotel. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Laksam Hotels. All rights reserved.</p>
             <p>
-                <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> |
+                <a href="mailto:info@laksam.lk">info@laksam.lk</a> |
                 <a href="tel:+94767799721">+94 777 611 290</a>
             </p>
             <p>No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</p>

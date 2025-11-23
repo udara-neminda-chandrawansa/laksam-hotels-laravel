@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Kings Castle Hotel')</title>
+    <title>@yield('title', 'Laksam Hotels')</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -91,9 +91,9 @@
         </div>
 
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Kings Castle Hotel. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Laksam Hotels. All rights reserved.</p>
             <p>
-                <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> |
+                <a href="mailto:info@laksam.lk">info@laksam.lk</a> |
                 <a href="tel:+94777611290">+94 777 611 290</a>
             </p>
             <p>No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</p>

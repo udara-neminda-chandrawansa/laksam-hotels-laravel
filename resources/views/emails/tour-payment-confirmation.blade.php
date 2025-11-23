@@ -245,13 +245,13 @@
         </div>
 
         <div class="footer">
-            <p>Thank you for choosing Kings Castle Hotel!</p>
+            <p>Thank you for choosing Laksam Hotels!</p>
             <p>
-                <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> |
+                <a href="mailto:info@laksam.lk">info@laksam.lk</a> |
                 <a href="tel:+94767799721">+94 777 611 290</a>
             </p>
             <p>No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</p>
-            <p>&copy; {{ date('Y') }} Kings Castle Hotel. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Laksam Hotels. All rights reserved.</p>
         </div>
     </div>
 </body>

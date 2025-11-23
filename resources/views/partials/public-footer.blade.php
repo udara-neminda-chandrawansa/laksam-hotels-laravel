@@ -76,7 +76,7 @@
                 <div class="info-box">
                   <div class="box-icon"><i class="fal fa-envelope"></i></div>
                   <p class="box-text">
-                    <a href="mailto:reservation@kingcastle.com" class="box-link">reservation@kingcastle.com</a>
+                    <a href="mailto:info@laksam.lk" class="box-link">info@laksam.lk</a>
                   </p>
                 </div>
               </div>

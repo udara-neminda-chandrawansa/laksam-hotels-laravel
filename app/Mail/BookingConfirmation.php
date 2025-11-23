@@ -30,7 +30,7 @@ class BookingConfirmation extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Booking Confirmation - Kings Castle Hotel',
+            subject: 'Booking Confirmation - Laksam Hotels',
         );
     }
 

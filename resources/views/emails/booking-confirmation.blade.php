@@ -150,13 +150,13 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Kings Castle Hotel</h1>
+            <h1>Laksam Hotels</h1>
             <p>Booking Confirmation</p>
         </div>
 
         <div class="content">
             <h2>Dear {{ $booking->guest_name }},</h2>
-            <p>Thank you for choosing Kings Castle Hotel! We're delighted to confirm your booking.</p>
+            <p>Thank you for choosing Laksam Hotels! We're delighted to confirm your booking.</p>
 
             <div class="booking-info">
                 <h3>Booking Details</h3>
@@ -221,20 +221,20 @@
                 @if($booking->status === 'pending')
                 <p>Your booking is currently pending confirmation. We'll send you another email once your booking is confirmed and payment is processed.</p>
                 @else
-                <p>Your booking is confirmed! We look forward to welcoming you to Kings Castle Hotel.</p>
+                <p>Your booking is confirmed! We look forward to welcoming you to Laksam Hotels.</p>
                 @endif
 
                 <p><strong>Check-in:</strong> 2:00 PM<br>
                 <strong>Check-out:</strong> 12:00 PM</p>
 
-                <p>If you have any questions or need to make changes to your booking, please contact us at <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> or call us at +94 777 611 290.</p>
+                <p>If you have any questions or need to make changes to your booking, please contact us at <a href="mailto:info@laksam.lk">info@laksam.lk</a> or call us at +94 777 611 290.</p>
             </div>
         </div>
 
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Kings Castle Hotel. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Laksam Hotels. All rights reserved.</p>
             <p>
-                <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> |
+                <a href="mailto:info@laksam.lk">info@laksam.lk</a> |
                 <a href="tel:+94777611290">+94 777 611 290</a>
             </p>
             <p>No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</p>

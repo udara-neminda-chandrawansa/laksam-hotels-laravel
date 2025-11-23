@@ -31,7 +31,7 @@
                         </div>
 
                         <p class="mt-3 wow fadeInUp" data-wow-delay=".4s">
-                            At <strong>Kings Castle Hotels</strong>, we value your trust and are committed to providing a smooth and transparent booking experience.
+                            At <strong>Laksam Hotels Hotels</strong>, we value your trust and are committed to providing a smooth and transparent booking experience.
                             This policy outlines the terms for cancellations, refunds, and booking amendments for guests staying with us.
                         </p>
 
@@ -89,14 +89,14 @@
                         </p>
 
                         <ul class="wow fadeInUp" data-wow-delay="2s">
-                            <li><strong>Kings Castle Hotels</strong></li>
+                            <li><strong>Laksam Hotels Hotels</strong></li>
                             <li>Address: No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</li>
-                            <li>Email: <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a></li>
+                            <li>Email: <a href="mailto:info@laksam.lk">info@laksam.lk</a></li>
                             <li>Phone: <a href="tel:+94767799721">+94 777 611 290</a></li>
                         </ul>
 
                         <p class="mt-4 wow fadeInUp" data-wow-delay="2.1s">
-                            Thank you for choosing <strong>Kings Castle Hotels</strong>.
+                            Thank you for choosing <strong>Laksam Hotels Hotels</strong>.
                             We appreciate your understanding and cooperation in ensuring a fair and pleasant booking experience for all our guests.
                         </p>
                     </div>

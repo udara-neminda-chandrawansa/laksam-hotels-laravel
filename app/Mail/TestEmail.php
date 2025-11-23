@@ -29,7 +29,7 @@ class TestEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Test Email - Kings Castle Hotel',
+            subject: 'Test Email - Laksam Hotels',
         );
     }
 

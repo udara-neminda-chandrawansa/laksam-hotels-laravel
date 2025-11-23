@@ -31,7 +31,7 @@
                         </div>
 
                         <p class="mt-3 wow fadeInUp" data-wow-delay=".4s">
-                            At <strong>Kings Castle Hotels</strong>, we value your trust and are committed to protecting
+                            At <strong>Laksam Hotels Hotels</strong>, we value your trust and are committed to protecting
                             your personal information. This Privacy Policy explains how we collect, use, disclose, and
                             safeguard your data when you visit our website, make a booking, or stay at our hotel.
                         </p>
@@ -112,14 +112,14 @@
                         </p>
 
                         <ul class="wow fadeInUp" data-wow-delay="2.2s">
-                            <li><strong>Kings Castle Hotels</strong></li>
+                            <li><strong>Laksam Hotels Hotels</strong></li>
                             <li>Address: No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</li>
-                            <li>Email: <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a></li>
+                            <li>Email: <a href="mailto:info@laksam.lk">info@laksam.lk</a></li>
                             <li>Phone: <a href="tel:+94767799721">+94 777 611 290</a></li>
                         </ul>
 
                         <p class="mt-4 wow fadeInUp" data-wow-delay="2.3s">
-                            Thank you for choosing <strong>Kings Castle Hotels</strong>. We are dedicated to maintaining
+                            Thank you for choosing <strong>Laksam Hotels Hotels</strong>. We are dedicated to maintaining
                             your privacy and ensuring your data is handled responsibly and securely throughout your stay
                             with us.
                         </p>

@@ -3,7 +3,7 @@
 
 <head>
 	<!--Title-->
-	<title>Kings Castle ~ Admin Dashboard</title>
+	<title>Laksam Hotels ~ Admin Dashboard</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">

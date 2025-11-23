@@ -3,151 +3,141 @@
 @section('content')
 
 <!-- breadcrumb section start -->
-<section class="breadcrumb-section">
+<section class="breadcrumb-section rooms-bread">
     <div class="container">
         <div class="breadcrumb-content">
             <h2 class="white-clr text-center">
-                Complete Reservations
+                Choose Your Room
             </h2>
         </div>
     </div>
 </section>
 
-<!-- Blog section start -->
-<section class="blog-grid-section fix section-padding white-bg">
+@php
+    $bookingData = request()->all();
+    $room_type_id = $bookingData['room_type_id'] ?? null;
+@endphp
+
+<!-- Luxuries section start -->
+<section class="luxries-section fix section-padding bg3">
     <div class="container">
-        <div class="row g-4">
-            <div class="col-md-7 col-lg-8">
-                <form action="#0" class="belling-address">
-                    <h3 class="black2-clr mb-4 pb-xxl-2">
-                        Billing Details
-                    </h3>
-                    <div class="row g-4">
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="First Name">
-                        </div>
-                        <div class="col-lg-6">
-                            <input type="text" placeholder="Last Name">
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" placeholder="Company Name">
-                        </div>
-                        <div class="col-lg-12">
-                            <select name="region">
-                                <option value="1">Country / Region*</option>
-                                <option value="2">...</option>
-                                <option value="3">....</option>
-                                <option value="4">...</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" placeholder="House number and street name">
-                        </div>
-                        <div class="col-lg-12">
-                            <select name="region">
-                                <option value="1">Town / City</option>
-                                <option value="2">...</option>
-                                <option value="3">....</option>
-                                <option value="4">...</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" placeholder="State">
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" placeholder="Zip Code">
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="text" placeholder="Phone">
-                        </div>
-                        <div class="col-lg-12">
-                            <input type="email" placeholder="E-mail Address">
-                        </div>
-                        <div class="col-lg-12 mt-4 pt-xxl-3">
-                            <h3 class="mb-3 black-clr">
-                                Additional Information
-                            </h3>
-                            <textarea rows="5" name="ordernote" placeholder="Order Note (Optional) "></textarea>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-md-5 col-lg-4">
-                <div class="details-common-box mb-4">
-                    <h6 class="black-clr mb-lg-4 mb-3">Your Order</h6>
-                    <ul class="common-listing">
-                        <li class="pb-2">
-                            <a href="javascript:void(0)"
-                                class="d-flex align-items-center justify-content-between gap-3">
-                                <span class="fs-16 fw-semibold black2-clr">Product</span>
-                                <span class="fs-16 fw-semibold black2-clr">Subtotal</span>
-                            </a>
-                        </li>
-                        <li class="cmn-detail-line mb-4"></li>
-                        <li class="pb-0">
-                            <a href="javascript:void(0)"
-                                class="d-flex align-items-center justify-content-between gap-3">
-                                <span class="fs-13 fw-500 black2-clr">Room 1</span>
-                                <span class="fs-13 fw-500 black2-clr">Rs 4400.00</span>
-                            </a>
-                        </li>
-                        <li class="pb-3">
-                            <a href="javascript:void(0)"
-                                class="d-flex align-items-center justify-content-between gap-3">
-                                <span class="fs-13 fw-500 black2-clr">Room 2</span>
-                                <span class="fs-13 fw-500 black2-clr">Rs 1100.00</span>
-                            </a>
-                        </li>
-                        <li class="pb-2">
-                            <a href="javascript:void(0)"
-                                class="d-flex align-items-center justify-content-between gap-3">
-                                <span class="fs-16 fw-500 black2-clr">Subtotal</span>
-                                <span class="fs-16 fw-500 black2-clr">Rs 5500.00</span>
-                            </a>
-                        </li>
-                        <li class="cmn-detail-line mb-3"></li>
-                        <li class="pb-2">
-                            <a href="javascript:void(0)"
-                                class="d-flex align-items-center justify-content-between gap-3">
-                                <span class="fs-16 fw-500 black2-clr">Total</span>
-                                <span class="fs-16 fw-500 black2-clr">Rs 5500.00</span>
-                            </a>
-                        </li>
-                        <li class="cmn-detail-line mb-0"></li>
-                    </ul>
-                </div>
-                <div class="details-common-box mb-4">
-                    <h6 class="black-clr mb-lg-4 mb-3">Payment</h6>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label fs-16 fw-500 black2-clr" for="flexCheckDefault">
-                            Direct bank transfer
+        <form id="bookingForm" action="{{ route('booking.store') }}" method="POST">
+            @csrf
+            <div class="row g-md-4 g-4">
+                @forelse ($roomTypes as $roomType)
+                    <div class="col-md-6 col-lg-4">
+                        <label class="luxries-single-item white-bg wow fadeInUp border p-2 room-card {{ $room_type_id == $roomType->id ? 'border-primary border-3 shadow' : '' }}" data-wow-delay=".4s" style="cursor:pointer;">
+                            <input type="checkbox" name="room_type_ids[]" value="{{ $roomType->id }}" {{ $room_type_id == $roomType->id ? 'checked' : '' }} class="room-checkbox d-none">
+                            <div class="thumb d-block mb-4 w-100 overflow-hidden aspect-video">
+                                <img src="{{ $roomType->image_path }}"
+                                    alt="{{ $roomType->name }}" class="w-100 overflow-hidden">
+                            </div>
+                            <div class="content">
+                                <span class="text-clr fs-16 fw-bold d-block mb-1">{{ $roomType->price_per_night }}</span>
+                                <h3 class="mb-sm-4 mb-3">
+                                    <p class="fw-semibold d-block black-clr mb-0">{{ $roomType->name }}</p>
+                                </h3>
+                                <ul class="blog-admin d-flex align-items-center gap-3 mb-4 pb-xxl-2">
+                                    <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
+                                        <i class="fas fa-users"></i> {{ $roomType->max_occupancy }} Guests
+                                    </li>
+                                    @if (!empty($roomType->amenities))
+                                        @foreach ($roomType->amenities as $amenity)
+                                            @if ($loop->iteration > 2)
+                                                @break
+                                            @endif
+                                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
+                                                <i class="fas fa-star"></i> {{ $amenity }}
+                                            </li>
+                                        @endforeach
+                                    @endif
+                                </ul>
+                            </div>
                         </label>
                     </div>
-                    <p class="black2-clr p-0 fs-14 mb-sm-3 mb-3 pe-xxl-5">
-                        Make your payment directly into
-                        our bank account. Please use your
-                        Order ID as the payment reference.
-                        Your order will not be shipped until
-                        the funds have cleared in our
-                        account.
-                    </p>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                        <label class="form-check-label fs-16 fw-500 black2-clr" for="flexCheckDefault2">
-                            Credit / Debit Card
-                        </label>
+                @empty
+                    <p>No Rooms Available</p>
+                @endforelse
+            </div>
+
+            <hr class="my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">Guest Details</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" name="guest_name" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" name="guest_email" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" name="guest_phone" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Address</label>
+                                    <input type="text" name="guest_address" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Address 2</label>
+                                    <input type="text" name="guest_address_2" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Adults</label>
+                                    <input type="number" name="adults" class="form-control" min="1" value="{{ $bookingData['adults'] ?? 1 }}" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Children</label>
+                                    <input type="number" name="children" class="form-control" min="0" value="{{ $bookingData['children'] ?? 0 }}">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Check-in</label>
+                                    <input type="date" name="check_in_date" class="form-control" value="{{ $bookingData['check_in'] ?? '' }}" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label">Check-out</label>
+                                    <input type="date" name="check_out_date" class="form-control" value="{{ $bookingData['check_out'] ?? '' }}" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Special Requests</label>
+                                    <textarea name="special_requests" class="form-control" rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-success btn-lg px-5">Book Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <a href="#" onclick="alert('Order placed successfully!');"
-                    class="theme-btn w-100 d-center fw-normal text-capitalize gap-2 rounded-2 fs-16">
-                    Place Your Order
-                </a>
             </div>
-        </div>
+        </form>
     </div>
 </section>
 
 <hr>
+
+<script>
+    // Highlight selected room cards
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('.room-checkbox');
+        checkboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                const card = this.closest('.room-card');
+                if (this.checked) {
+                    card.classList.add('border-primary', 'border-3', 'shadow');
+                } else {
+                    card.classList.remove('border-primary', 'border-3', 'shadow');
+                }
+            });
+        });
+    });
+</script>
 
 @endsection

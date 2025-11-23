@@ -32,7 +32,7 @@ class TourBookingStatusUpdate extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Tour Booking Status Update - Kings Castle Hotel',
+            subject: 'Tour Booking Status Update - Laksam Hotels',
         );
     }
 

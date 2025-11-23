@@ -194,7 +194,7 @@
                 @elseif($tourBooking->status === 'cancelled')
                     <p><strong>Booking Cancelled:</strong> If you have any questions about this cancellation or need assistance with rebooking, please contact our support team.</p>
                 @elseif($tourBooking->status === 'completed')
-                    <p><strong>Tour Completed:</strong> We hope you enjoyed your experience with us. Thank you for choosing Kings Castle Hotel for your tour needs.</p>
+                    <p><strong>Tour Completed:</strong> We hope you enjoyed your experience with us. Thank you for choosing Laksam Hotels for your tour needs.</p>
                 @else
                     <p><strong>Status Update:</strong> Your booking status has been updated. Please check the details below.</p>
                 @endif
@@ -272,14 +272,14 @@
                     <p>If you have any questions about this status update, please don't hesitate to contact us.</p>
                 @endif
 
-                <p>For any questions or assistance, please contact us at <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> or call us at +94 777 611 290.</p>
+                <p>For any questions or assistance, please contact us at <a href="mailto:info@laksam.lk">info@laksam.lk</a> or call us at +94 777 611 290.</p>
             </div>
         </div>
 
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Kings Castle Hotel. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Laksam Hotels. All rights reserved.</p>
             <p>
-                <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> |
+                <a href="mailto:info@laksam.lk">info@laksam.lk</a> |
                 <a href="tel:+94767799721">+94 777 611 290</a>
             </p>
             <p>No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</p>

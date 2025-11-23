@@ -1406,7 +1406,8 @@ span {
   }
 }
 
-.booking-form .book-form .input-area input {
+.booking-form .book-form .input-area input,
+.booking-form .book-form .input-area select {
   width: 100%;
   border: 1px solid #e2e2e2;
   background: #f2f2f2;

@@ -84,7 +84,7 @@ class TourBookingController extends Controller
             Mail::to($tourBookingN->guest_email)->send(new TourBookingConfirmation($tourBookingN));
 
             // Send notification email to admin
-            Mail::to('reservation@kingcastle.com')->send(new AdminTourBookingNotification($tourBookingN));
+            Mail::to('info@laksam.lk')->send(new AdminTourBookingNotification($tourBookingN));
 
             if ($request->expectsJson()) {
                 return response()->json([

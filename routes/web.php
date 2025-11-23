@@ -73,7 +73,7 @@ Route::get('/terms-conditions', function () {
 
 
 // Booking routes (public)
-Route::post('/check-availability', [BookingController::class, 'checkAvailability'])->name('booking.check-availability');
+//Route::post('/check-availability', [BookingController::class, 'checkAvailability'])->name('booking.check-availability');
 Route::get('/book-room', [BookingController::class, 'create'])->name('booking.create');
 Route::post('/book-room', [BookingController::class, 'store'])->name('booking.store');
 Route::get('/booking/{booking}', [BookingController::class, 'show'])->name('booking.show');

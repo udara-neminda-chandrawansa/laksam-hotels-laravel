@@ -197,7 +197,7 @@
                 <h1>Booking Cancelled</h1>
             @elseif($status === 'checked-in')
                 <div class="status-icon">🏨</div>
-                <h1>Welcome to Kings Castle!</h1>
+                <h1>Welcome to Laksam Hotels!</h1>
             @elseif($status === 'checked-out')
                 <div class="status-icon">👋</div>
                 <h1>Thank You for Staying!</h1>
@@ -205,20 +205,20 @@
                 <div class="status-icon">⏳</div>
                 <h1>Status Update</h1>
             @endif
-            <p>Kings Castle Hotel</p>
+            <p>Laksam Hotels</p>
         </div>
 
         <div class="content">
             <h2>Dear {{ $booking->guest_name }},</h2>
 
             @if($status === 'confirmed')
-                <p>Excellent news! Your booking has been confirmed. We're thrilled to welcome you to Kings Castle Hotel.</p>
+                <p>Excellent news! Your booking has been confirmed. We're thrilled to welcome you to Laksam Hotels.</p>
             @elseif($status === 'cancelled')
                 <p>We're sorry to inform you that your booking has been cancelled. If you have any questions, please contact us immediately.</p>
             @elseif($status === 'checked-in')
-                <p>Welcome to Kings Castle Hotel! We hope you have a wonderful stay with us.</p>
+                <p>Welcome to Laksam Hotels! We hope you have a wonderful stay with us.</p>
             @elseif($status === 'checked-out')
-                <p>Thank you for choosing Kings Castle Hotel. We hope you had a pleasant stay and look forward to welcoming you again soon.</p>
+                <p>Thank you for choosing Laksam Hotels. We hope you had a pleasant stay and look forward to welcoming you again soon.</p>
             @else
                 <p>We wanted to update you on the status of your booking.</p>
             @endif
@@ -299,15 +299,15 @@
 
             <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f1f3f4; border-radius: 8px;">
                 <p>If you have any questions or concerns, please don't hesitate to contact us:</p>
-                <p><strong>Email:</strong> <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a><br>
+                <p><strong>Email:</strong> <a href="mailto:info@laksam.lk">info@laksam.lk</a><br>
                 <strong>Phone:</strong> <a href="tel:+94777611290">+94 777 611 290</a></p>
             </div>
         </div>
 
         <div class="footer">
-            <p>&copy; {{ date('Y') }} Kings Castle Hotel. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} Laksam Hotels. All rights reserved.</p>
             <p>
-                <a href="mailto:reservation@kingcastle.com">reservation@kingcastle.com</a> |
+                <a href="mailto:info@laksam.lk">info@laksam.lk</a> |
                 <a href="tel:+94777611290">+94 777 611 290</a>
             </p>
             <p>No:30, Gemunu Pura, Magasthota, Nuwara Eliya, Sri Lanka</p>

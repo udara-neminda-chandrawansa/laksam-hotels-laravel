@@ -2,12 +2,24 @@
 
 @section('content')
 
+<style>
+    .booking-form .book-form .input-area select {
+        width: 100%;
+        border: 1px solid #e2e2e2 !important;
+        background: #f2f2f2 !important;
+        padding: 13px 16px 14px !important;
+        font-size: 14px !important;
+        line-height: 16px !important;
+        color: var(--text) !important;
+    }
+</style>
+
 <!-- breadcrumb section start -->
 <section class="breadcrumb-section rooms-bread">
     <div class="container">
         <div class="breadcrumb-content">
             <h2 class="white-clr text-center">
-                Choose Your Room
+                Our Room
             </h2>
         </div>
     </div>
@@ -26,34 +38,40 @@
         </div>
         <div class="row g-md-4 g-4">
             @foreach ($roomTypes as $roomType)
-                <div class="col-md-6 col-lg-4">
-                    <div class="luxries-single-item white-bg wow fadeInUp" data-wow-delay=".4s">
-                        <a href="/room-details/{{ $roomType->id }}" class="thumb d-block mb-4 w-100 overflow-hidden aspect-video">
-                            <img src="{{ $roomType->image_path }}"
-                                alt="Royal Suite" class="w-100 overflow-hidden">
+            <div class="col-md-6 col-lg-4">
+                <div class="luxries-single-item white-bg wow fadeInUp" data-wow-delay=".4s">
+                    <a href="/room-details/{{ $roomType->id }}"
+                        class="thumb d-block mb-4 w-100 overflow-hidden aspect-video">
+                        <img src="{{ $roomType->image_path }}" alt="Royal Suite" class="w-100 overflow-hidden">
+                    </a>
+                    <div class="content">
+                        <span class="text-clr fs-16 fw-bold d-block mb-1">{{ $roomType->price_per_night }}</span>
+                        <h3 class="mb-sm-4 mb-3">
+                            <a href="/room-details/{{ $roomType->id }}" class="fw-semibold d-block black-clr">{{
+                                $roomType->name }}</a>
+                        </h3>
+                        <ul class="blog-admin d-flex align-items-center gap-3 mb-4 pb-xxl-2">
+                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
+                                <i class="fas fa-users"></i> {{ $roomType->max_occupancy }} Guests
+                            </li>
+                            @if (!empty($roomType->amenities))
+                            @foreach ($roomType->amenities as $amenity)
+                            @if ($loop->iteration > 2)
+                            @break
+                            @endif
+                            <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
+                                <i class="fas fa-star"></i> {{ $amenity }}
+                            </li>
+                            @endforeach
+                            @endif
+                        </ul>
+                        <a href="/room-details/{{ $roomType->id }}"
+                            class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
+                            Room Details
                         </a>
-                        <div class="content">
-                            <span class="text-clr fs-16 fw-bold d-block mb-1">{{ $roomType->price_per_night }}</span>
-                            <h3 class="mb-sm-4 mb-3">
-                                <a href="#" class="fw-semibold d-block black-clr">{{ $roomType->name }}</a>
-                            </h3>
-                            <ul class="blog-admin d-flex align-items-center gap-3 mb-4 pb-xxl-2">
-                                <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                    <i class="fas fa-users"></i> {{ $roomType->max_occupancy }} Guests
-                                </li>
-                                <li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                    <i class="fas fa-star"></i> {{ $roomType->amenities[0] }}
-                                </li>
-                                {{ isset($roomType->amenities[1]) ?
-                                '<li class="d-flex align-items-center gap-2 black-clr fs-16 fw-500">
-                                    <i class="fas fa-star"></i> $roomType->amenities[1]
-                                </li>'
-                                : '' }}
-                            </ul>
-                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">Book Now</a>
-                        </div>
                     </div>
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
@@ -71,38 +89,50 @@
                             Hotel Bookings
                         </h3>
                     </div>
-                    <form action="#" class="booking-form">
+                    <form action="/book-room" class="booking-form" method="GET">
                         <div class="book-form mb-3">
                             <label for="checkin" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Check
                                 In:</label>
                             <div class="input-area">
-                                <input type="text" id="checkin" placeholder="dd/mm/yyy">
+                                <input type="date" id="check-in" name="check_in">
                             </div>
                         </div>
                         <div class="book-form mb-3">
                             <label for="checkout" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Check
                                 Out:</label>
                             <div class="input-area">
-                                <input type="text" id="checkout" placeholder="dd/mm/yyy">
+                                <input type="date" id="check-out" name="check_out">
                             </div>
                         </div>
                         <div class="book-form mb-3">
                             <label for="adult" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Adult:</label>
                             <div class="input-area">
-                                <input type="text" id="adult" placeholder="+ Add Guests">
+                                <select id="adults3" name="adults">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                             </div>
                         </div>
                         <div class="book-form mb-4">
                             <label for="child" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Children:</label>
                             <div class="input-area">
-                                <input type="text" id="child" placeholder="+ Add Guests">
+                                <select id="children" name="children">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                             </div>
                         </div>
                         <div class="book-form text-center">
-                            <a href="/book-room"
+                            <button type="submit"
                                 class="theme-btn py-sm-3 py-3 fw-normal text-capitalize gap-1 px-sm-4 px-4">
                                 Check Availability
-                            </a>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -112,46 +142,44 @@
                     <div class="section-title">
                         <span class="sub-font wow fadeInUp">Nearby Attractions</span>
                         <h2 class="fw-semibold wow fadeInUp mb-sm-3 mb-2" data-wow-delay=".3s">
-                            Explore & Experience Sacred Kandy's Cultural Treasures
+                            Discover the Wonders of Nuwara Eliya
                         </h2>
                         <p class="black-clr fs-16 mb-lg-4 mb-3">
-                            Immerse yourself in the rich cultural heritage of Kandy, the last royal capital of Sri
-                            Lanka. Our hotel provides easy access to ancient temples, scenic lakes, and traditional
-                            experiences that showcase the authentic beauty of Ceylon.
+                            Explore the best of Sri Lanka’s hill country, just moments from Laksam Hotels:
                         </p>
                         <div class="booking-listing-inner mb-4 pb-lg-3">
                             <ul class="list d-grid gap-sm-2 gap-1">
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Temple of the Sacred Tooth
+                                    <i class="fa-solid fa-circle"></i> Gregory Lake & Park
                                 </li>
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Kandy Lake (Bogambara)
+                                    <i class="fa-solid fa-circle"></i> Victoria Park
                                 </li>
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Royal Botanical Gardens
+                                    <i class="fa-solid fa-circle"></i> Hakgala Botanical Garden
                                 </li>
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Udawattakele Sanctuary
+                                    <i class="fa-solid fa-circle"></i> Pedro Tea Estate & Factory
                                 </li>
                             </ul>
                             <ul class="list d-grid gap-sm-2 gap-1">
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Kandy Cultural Centre
+                                    <i class="fa-solid fa-circle"></i> Lover’s Leap Waterfall
                                 </li>
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Bahirawakanda Temple
+                                    <i class="fa-solid fa-circle"></i> Galway’s Land National Park
                                 </li>
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Ceylon Tea Museum
+                                    <i class="fa-solid fa-circle"></i> Seetha Amman Temple
                                 </li>
                                 <li class="heading-font black-clr fs-16 fw-500">
-                                    <i class="fa-solid fa-circle"></i>Embekke Devalaya
+                                    <i class="fa-solid fa-circle"></i> Nuwara Eliya Golf Club
                                 </li>
                             </ul>
                         </div>
-                        <a href="/room-details/1"
+                        <a href="/about"
                             class="theme-btn py-sm-3 py-3 fw-normal text-capitalize gap-1 px-sm-4 px-4">
-                            Discovery Tour
+                            About Us
                         </a>
                     </div>
                 </div>

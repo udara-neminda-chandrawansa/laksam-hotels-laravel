@@ -34,85 +34,95 @@ class BookingController extends Controller
     /**
      * Check availability for booking form
      */
-    public function checkAvailability(Request $request)
-    {
-        $request->validate([
-            'check_in' => 'required|date|after_or_equal:today',
-            'check_out' => 'required|date|after:check_in',
-            'adults' => 'required|integer|min:1',
-            'children' => 'nullable|integer|min:0'
-        ]);
+    // public function checkAvailability(Request $request)
+    // {
+    //     $request->validate([
+    //         'check_in' => 'required|date|after_or_equal:today',
+    //         'check_out' => 'required|date|after:check_in',
+    //         'adults' => 'required|integer|min:1',
+    //         'children' => 'nullable|integer|min:0'
+    //     ]);
 
-        $checkIn = Carbon::parse($request->check_in);
-        $checkOut = Carbon::parse($request->check_out);
-        $nights = $checkOut->diffInDays($checkIn);
+    //     $checkIn = Carbon::parse($request->check_in);
+    //     $checkOut = Carbon::parse($request->check_out);
+    //     $nights = $checkOut->diffInDays($checkIn);
 
-        // Get active room types meeting occupancy
-        $suitableRoomTypes = RoomType::where('is_active', true)
-            ->where('max_occupancy', '>=', $request->adults)
-            ->get();
+    //     // Get active room types meeting occupancy
+    //     $suitableRoomTypes = RoomType::where('is_active', true)
+    //         ->where('max_occupancy', '>=', $request->adults)
+    //         ->get();
 
-        // Get booked room types during that period
-        $bookedRoomTypeIds = BookingRoom::whereHas('booking', function ($query) use ($checkIn, $checkOut) {
-            $query->where('check_in_date', '<', $checkOut)
-                ->where('check_out_date', '>', $checkIn)
-                ->whereIn('status', ['confirmed', 'checked_in', 'pending']);
-        })
-            ->pluck('room_type_id')
-            ->unique()
-            ->toArray();
+    //     // Get booked room types during that period
+    //     $bookedRoomTypeIds = BookingRoom::whereHas('booking', function ($query) use ($checkIn, $checkOut) {
+    //         $query->where('check_in_date', '<', $checkOut)
+    //             ->where('check_out_date', '>', $checkIn)
+    //             ->whereIn('status', ['confirmed', 'checked_in', 'pending']);
+    //     })
+    //         ->pluck('room_type_id')
+    //         ->unique()
+    //         ->toArray();
 
-        // Remove booked ones
-        $availableRooms = $suitableRoomTypes->reject(
-            fn($roomType) =>
-            in_array($roomType->id, $bookedRoomTypeIds)
-        );
+    //     // Remove booked ones
+    //     $availableRooms = $suitableRoomTypes->reject(
+    //         fn($roomType) =>
+    //         in_array($roomType->id, $bookedRoomTypeIds)
+    //     );
 
-        return response()->json([
-            'available_rooms' => $availableRooms->values(),
-            'nights' => $nights,
-            'check_in' => $checkIn->format('Y-m-d'),
-            'check_out' => $checkOut->format('Y-m-d'),
-            'total_rooms_found' => $suitableRoomTypes->count(),
-            'booked_rooms_count' => count($bookedRoomTypeIds)
-        ]);
-    }
+    //     // Pass booking parameters to view
+    //     $bookingData = [
+    //         'check_in' => $request->get('check_in', date('Y-m-d')),
+    //         'check_out' => $request->get('check_out', date('Y-m-d', strtotime('+1 day'))),
+    //         'adults' => $request->adults,
+    //         'children' => $request->children
+    //     ];
+
+    //     // return response()->json([
+    //     //     'available_rooms' => $availableRooms->values(),
+    //     //     'nights' => $nights,
+    //     //     'check_in' => $checkIn->format('Y-m-d'),
+    //     //     'check_out' => $checkOut->format('Y-m-d'),
+    //     //     'total_rooms_found' => $suitableRoomTypes->count(),
+    //     //     'booked_rooms_count' => count($bookedRoomTypeIds)
+    //     // ]);
+
+    //     return view('public-site.create-booking', compact('availableRooms', 'bookingData'));
+    // }
 
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create1(Request $request)
-    {
-        // Get available room types based on guest count if provided
-        $adults = $request->get('adults', 1);
-        $children = $request->get('children', 0);
+    // public function create1(Request $request)
+    // {
+    //     // Get available room types based on guest count if provided
+    //     $adults = $request->get('adults', 1);
+    //     $children = $request->get('children', 0);
 
-        $roomTypesQuery = RoomType::where('is_active', true);
+    //     $roomTypesQuery = RoomType::where('is_active', true);
 
-        // Filter by occupancy if adults parameter is provided
-        if ($request->has('adults')) {
-            $roomTypesQuery->where('max_occupancy', '>=', $adults);
-        }
+    //     // Filter by occupancy if adults parameter is provided
+    //     if ($request->has('adults')) {
+    //         $roomTypesQuery->where('max_occupancy', '>=', $adults);
+    //     }
 
-        $roomTypes = $roomTypesQuery->get();
+    //     $roomTypes = $roomTypesQuery->get();
 
-        // If coming from availability check
-        $selectedRoom = null;
-        if ($request->has('room_type_id')) {
-            $selectedRoom = RoomType::find($request->room_type_id);
-        }
+    //     // If coming from availability check
+    //     $selectedRoom = null;
+    //     if ($request->has('room_type_id')) {
+    //         $selectedRoom = RoomType::find($request->room_type_id);
+    //     }
 
-        // Pass booking parameters to view
-        $bookingData = [
-            'check_in' => $request->get('check_in', date('Y-m-d')),
-            'check_out' => $request->get('check_out', date('Y-m-d', strtotime('+1 day'))),
-            'adults' => $adults,
-            'children' => $children
-        ];
+    //     // Pass booking parameters to view
+    //     $bookingData = [
+    //         'check_in' => $request->get('check_in', date('Y-m-d')),
+    //         'check_out' => $request->get('check_out', date('Y-m-d', strtotime('+1 day'))),
+    //         'adults' => $adults,
+    //         'children' => $children
+    //     ];
 
-        return view('public-site.create-booking', compact('roomTypes', 'selectedRoom', 'bookingData'));
-    }
+    //     return view('public-site.create-booking', compact('roomTypes', 'selectedRoom', 'bookingData'));
+    // }
 
     public function create(Request $request)
     {
@@ -239,9 +249,9 @@ class BookingController extends Controller
                 Mail::to($booking->guest_email)->send(new BookingConfirmation($booking));
                 Log::info('Booking confirmation email sent', ['booking_id' => $booking->id, 'email' => $booking->guest_email]);
 
-                // Send notification email to admin
-                Mail::to('reservation@kingcastle.com')->send(new AdminRoomBookingNotification($booking));
-                Log::info('Admin room booking notification sent', ['booking_id' => $booking->id, 'admin_email' => 'reservation@kingcastle.com']);
+                // Send notification email to admin (disabled for now, this works perfectly)
+                // Mail::to('info@laksam.lk')->send(new AdminRoomBookingNotification($booking));
+                // Log::info('Admin room booking notification sent', ['booking_id' => $booking->id, 'admin_email' => 'info@laksam.lk']);
 
             } catch (\Exception $emailException) {
                 Log::error('Failed to send booking confirmation email', [
@@ -282,7 +292,8 @@ class BookingController extends Controller
     public function show(Booking $booking)
     {
         $booking->load(['user', 'roomTypes', 'payment']);
-        return view('public-site.booking-confirmation', compact('booking'));
+        $roomTypes = RoomType::where('is_active', true)->get();
+        return view('public-site.booking-confirmation', compact('booking', 'roomTypes'));
     }
 
     /**

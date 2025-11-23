@@ -149,8 +149,9 @@
                 <div class="card shadow-sm sticky-top" style="top: 20px;">
                     <div class="card-body">
                         <h3 class="card-title mb-4" id="booking">Book This Room</h3>
-                        <form action="/check-availability" method="POST">
+                        <form action="/book-room" method="GET">
                             @csrf
+                            <input type="hidden" name="room_type_id" value="{{ $roomType->id }}">
                             <div class="mb-3">
                                 <label for="checkIn" class="form-label">Check-in Date</label>
                                 <input type="date" class="form-control" id="checkIn" name="check_in">

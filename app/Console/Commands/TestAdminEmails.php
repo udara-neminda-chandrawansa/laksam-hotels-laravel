@@ -38,7 +38,7 @@ class TestAdminEmails extends Command
 
         if ($latestTourBooking) {
             try {
-                Mail::to('reservation@kingcastle.com')->send(new AdminTourBookingNotification($latestTourBooking));
+                Mail::to('info@laksam.lk')->send(new AdminTourBookingNotification($latestTourBooking));
                 $this->info('✅ Tour booking admin email sent successfully!');
             } catch (\Exception $e) {
                 $this->error('❌ Failed to send tour booking admin email: ' . $e->getMessage());
@@ -53,7 +53,7 @@ class TestAdminEmails extends Command
 
         if ($latestRoomBooking) {
             try {
-                Mail::to('reservation@kingcastle.com')->send(new AdminRoomBookingNotification($latestRoomBooking));
+                Mail::to('info@laksam.lk')->send(new AdminRoomBookingNotification($latestRoomBooking));
                 $this->info('✅ Room booking admin email sent successfully!');
             } catch (\Exception $e) {
                 $this->error('❌ Failed to send room booking admin email: ' . $e->getMessage());

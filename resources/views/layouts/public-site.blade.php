@@ -26,7 +26,7 @@
     <!--<< Swiper Bundle.css >>-->
     <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
     <!--<< Nice Select.css >>-->
-    <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/css/nice-select.css') }}"> --}}
     <!--<< Expose Font.css >>-->
     <link rel="stylesheet" href="{{ asset('assets/css/expose.css') }}">
     <!--<< Main.css >>-->
@@ -378,7 +378,7 @@
     <!--<< Bootstrap Js >>-->
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
     <!--<< Nice Select Js >>-->
-    <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script> --}}
     <!--<< Waypoints Js >>-->
     <script src="{{ asset('assets/js/jquery.waypoints.js') }}"></script>
     <!--<< Counterup Js >>-->
