@@ -536,34 +536,34 @@ CSS TABLE OF CONTENTS
 	document.addEventListener("DOMContentLoaded", function () {
 		const bookingForm = document.querySelector("#booking-form");
 
-		if (bookingForm) {
-			bookingForm.addEventListener("submit", function (e) {
-				e.preventDefault();
+		// if (bookingForm) {
+		// 	bookingForm.addEventListener("submit", function (e) {
+		// 		e.preventDefault();
 
-				const checkIn = bookingForm.querySelector("#check-in").value;
-				const checkOut = bookingForm.querySelector("#check-out").value;
-				const adults = bookingForm.querySelector("#adults").value;
-				const children = bookingForm.querySelector("#children").value;
+		// 		const checkIn = bookingForm.querySelector("#check-in").value;
+		// 		const checkOut = bookingForm.querySelector("#check-out").value;
+		// 		const adults = bookingForm.querySelector("#adults").value;
+		// 		const children = bookingForm.querySelector("#children").value;
 
-				// Validate dates
-				if (!checkIn || !checkOut) {
-					alert("Please select both check-in and check-out dates.");
-					return;
-				}
+		// 		// Validate dates
+		// 		if (!checkIn || !checkOut) {
+		// 			alert("Please select both check-in and check-out dates.");
+		// 			return;
+		// 		}
 
-				// Ensure check-out is after check-in
-				if (new Date(checkOut) <= new Date(checkIn)) {
-					alert("Check-out date must be after check-in date.");
-					return;
-				}
+		// 		// Ensure check-out is after check-in
+		// 		if (new Date(checkOut) <= new Date(checkIn)) {
+		// 			alert("Check-out date must be after check-in date.");
+		// 			return;
+		// 		}
 
-				alert(`Booking Details:
-                Check-in: ${checkIn}
-                Check-out: ${checkOut}
-                Adults: ${adults}
-                Children: ${children}`);
-			});
-		}
+		// 		alert(`Booking Details:
+        //         Check-in: ${checkIn}
+        //         Check-out: ${checkOut}
+        //         Adults: ${adults}
+        //         Children: ${children}`);
+		// 	});
+		// }
 	});
 
 	//Cart Increment Decriemnt

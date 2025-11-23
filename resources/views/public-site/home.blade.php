@@ -21,18 +21,19 @@
 
                         </div>
                         <div class="date-picker-container">
-                            <form id="booking-form"
+                            <form id="booking-form" action="{{ route('booking.check-availability') }}" method="POST"
                                 class="d-flex flex-lg-nowrap justify-content-lg-between justify-content-center flex-wrap align-items-end gap-xxl-4 gap-xl-3 gap-2">
+                                @csrf
                                 <div class="form-group">
                                     <label for="check-in" class="black2-clr fs-14 fw-500 mb-2 d-block">Check
                                         In:</label>
-                                    <input type="date" id="check-in" name="check-in">
+                                    <input type="date" id="check-in" name="check_in">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="check-out"
-                                        class="black2-clr fs-14 fw-500 mb-2 d-block">check-out:</label>
-                                    <input type="date" id="check-out" name="check-out">
+                                        class="black2-clr fs-14 fw-500 mb-2 d-block">Check out:</label>
+                                    <input type="date" id="check-out" name="check_out">
                                 </div>
 
                                 <div class="form-group">
@@ -44,6 +45,7 @@
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
+                                    <input type="hidden" name="children" value="0">
                                 </div>
 
                                 <div class="form-group">
@@ -90,29 +92,31 @@
 
                         </div>
                         <div class="date-picker-container">
-                            <form id="booking-form2"
+                            <form id="booking-form2" action="{{ route('booking.check-availability') }}" method="POST"
                                 class="d-flex flex-lg-nowrap justify-content-lg-between justify-content-center flex-wrap align-items-end gap-xxl-4 gap-xl-3 gap-2">
+                                @csrf
                                 <div class="form-group">
-                                    <label for="check-in2" class="black2-clr fs-14 fw-500 mb-2 d-block">Check
+                                    <label for="check-in" class="black2-clr fs-14 fw-500 mb-2 d-block">Check
                                         In:</label>
-                                    <input type="date" id="check-in2" name="check-in">
+                                    <input type="date" id="check-in" name="check_in">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="check-out2"
-                                        class="black2-clr fs-14 fw-500 mb-2 d-block">check-out:</label>
-                                    <input type="date" id="check-out2" name="check-out">
+                                    <label for="check-out"
+                                        class="black2-clr fs-14 fw-500 mb-2 d-block">Check out:</label>
+                                    <input type="date" id="check-out" name="check_out">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="adults2" class="black2-clr fs-14 fw-500 mb-2 d-block">Guest:</label>
-                                    <select id="adults2" name="adults">
+                                    <label for="adults3" class="black2-clr fs-14 fw-500 mb-2 d-block">Guest:</label>
+                                    <select id="adults3" name="adults">
                                         <option value="1">Adult:</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
+                                    <input type="hidden" name="children" value="0">
                                 </div>
 
                                 <div class="form-group">
@@ -250,7 +254,7 @@
     </div>
 </section>
 
-<!-- Luxuries section start -->
+<!-- Rooms start -->
 <section class="luxries-room-section fix section-padding bg3">
     <div class="container">
         <div class="room-head-area mb-50 d-flex align-items-end justify-content-between gap-lg-3 gap-2 flex-wrap">
@@ -266,222 +270,46 @@
             </p>
         </div>
         <div class="row g-md-4 g-4">
+            @foreach ($roomTypes as $roomType)
             <div class="col-md-6 col-lg-4">
                 <div class="luxries-room-item wow fadeInUp" data-wow-delay=".4s">
-                    <a href="#" class="thumb d-block w-100 overflow-hidden">
-                        <img src="assets/img/rooms/sample.webp" alt="img" class="w-100 overflow-hidden">
+                    <a href="/room-details/{{ $roomType->id }}" class="thumb d-block w-100 overflow-hidden">
+                        <img src="{{ asset($roomType->image_path) }}" alt="img" class="w-100 overflow-hidden">
                     </a>
                     <div class="content">
                         <ul class="blog-admin d-flex align-items-center justify-content-center gap-3">
                             <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/square-white.png" alt="img" class="white-icon"> 260sq
+                                <img src="assets/img/icon/guests-white.png" alt="img" class="white-icon"> {{ $roomType->max_occupancy }} Guests
                             </li>
+                            @foreach ($roomType->amenities as $amenity)
+                            @if ($loop->index >= 2)
+                                @break
+                                
+                            @endif
                             <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/double-bed-white.png" alt="img" class="white-icon"> 2 Beds
+                                <img src="assets/img/icon/check-icon.png" alt="img" class="white-icon"> {{ $amenity }}
                             </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/guests-white.png" alt="img" class="white-icon"> 4 Guests
-                            </li>
+                            @endforeach
                         </ul>
                         <div class="boxes">
-                            <h3 class="theme2-clr mb-xxl-1 mb-0 fs-32 body-font fw-bold">Rs. 28,000 <span
-                                    class="black-clr body-font fw-500 fs-14">/4 Nights</span></h3>
+                            <h3 class="theme2-clr mb-xxl-1 mb-0 fs-32 body-font fw-bold">Rs. {{ $roomType->price_per_night }} <span
+                                    class="black-clr body-font fw-500 fs-14">/1 Night</span></h3>
                             <h3 class="mb-xl-3 mb-2">
-                                <a href="#" class="fw-semibold d-block black-clr">
-                                    Deluxe Lake View Room
+                                <a href="/room-details/{{ $roomType->id }}" class="fw-semibold d-block black-clr">
+                                    {{ $roomType->name }}
                                 </a>
                             </h3>
                             <p class="mb-4">
-                                Enjoy panoramic lake views, a private balcony, and a spa-style bath. Perfect for
-                                couples seeking a romantic highland retreat.
+                                {{ $roomType->description }}
                             </p>
-                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
+                            <a href="/room-details/{{ $roomType->id }}" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
                                 Room Details
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-room-item wow fadeInRight" data-wow-delay=".5s">
-                    <a href="#" class="thumb d-block w-100 overflow-hidden">
-                        <img src="assets/img/rooms/sample.webp" alt="img" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <ul class="blog-admin d-flex align-items-center justify-content-center gap-3">
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/square-white.png" alt="img" class="white-icon"> 260sq
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/double-bed-white.png" alt="img" class="white-icon"> 2 Beds
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/guests-white.png" alt="img" class="white-icon"> 4 Guests
-                            </li>
-                        </ul>
-                        <div class="boxes">
-                            <h3 class="theme2-clr mb-xxl-1 mb-0 fs-32 body-font fw-bold">Rs. 18,000 <span
-                                    class="black-clr body-font fw-500 fs-14">/4 Nights</span></h3>
-                            <h3 class="mb-xl-3 mb-2">
-                                <a href="#" class="fw-semibold d-block black-clr">
-                                    Family Garden Suite
-                                </a>
-                            </h3>
-                            <p class="mb-4">
-                                Spacious suite with garden views, ideal for families or small groups. Features
-                                interconnecting rooms and modern amenities.
-                            </p>
-                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
-                                Room Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-room-item wow fadeInLeft" data-wow-delay=".6s">
-                    <a href="#" class="thumb d-block w-100 overflow-hidden">
-                        <img src="assets/img/rooms/sample.webp" alt="img" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <ul class="blog-admin d-flex align-items-center justify-content-center gap-3">
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/square-white.png" alt="img" class="white-icon"> 260sq
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/double-bed-white.png" alt="img" class="white-icon"> 2 Beds
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/guests-white.png" alt="img" class="white-icon"> 4 Guests
-                            </li>
-                        </ul>
-                        <div class="boxes">
-                            <h3 class="theme2-clr mb-xxl-1 mb-0 fs-32 body-font fw-bold">Rs. 38,000 <span
-                                    class="black-clr body-font fw-500 fs-14">/4 Nights</span></h3>
-                            <h3 class="mb-xl-3 mb-2">
-                                <a href="#" class="fw-semibold d-block black-clr">
-                                    Premium Mountain View Room
-                                </a>
-                            </h3>
-                            <p class="mb-4">
-                                Wake up to breathtaking mountain vistas and fresh highland air. Includes a hot tub
-                                and complimentary breakfast.
-                            </p>
-                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
-                                Room Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-room-item wow fadeInUp" data-wow-delay=".4s">
-                    <a href="#" class="thumb d-block w-100 overflow-hidden">
-                        <img src="assets/img/rooms/sample.webp" alt="img" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <ul class="blog-admin d-flex align-items-center justify-content-center gap-3">
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/square-white.png" alt="img" class="white-icon"> 260sq
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/double-bed-white.png" alt="img" class="white-icon"> 2 Beds
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/guests-white.png" alt="img" class="white-icon"> 4 Guests
-                            </li>
-                        </ul>
-                        <div class="boxes">
-                            <h3 class="theme2-clr mb-xxl-1 mb-0 fs-32 body-font fw-bold">Rs. 26,000 <span
-                                    class="black-clr body-font fw-500 fs-14">/4 Nights</span></h3>
-                            <h3 class="mb-xl-3 mb-2">
-                                <a href="#" class="fw-semibold d-block black-clr">
-                                    Standard Highland Room
-                                </a>
-                            </h3>
-                            <p class="mb-4">
-                                Comfortable and cozy, with all essentials for a relaxing stay in Nuwara Eliya. Great
-                                for solo travelers or couples.
-                            </p>
-                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
-                                Room Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-room-item wow fadeInRight" data-wow-delay=".5s">
-                    <a href="#" class="thumb d-block w-100 overflow-hidden">
-                        <img src="assets/img/rooms/sample.webp" alt="img" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <ul class="blog-admin d-flex align-items-center justify-content-center gap-3">
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/square-white.png" alt="img" class="white-icon"> 260sq
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/double-bed-white.png" alt="img" class="white-icon"> 2 Beds
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/guests-white.png" alt="img" class="white-icon"> 4 Guests
-                            </li>
-                        </ul>
-                        <div class="boxes">
-                            <h3 class="theme2-clr mb-xxl-1 mb-0 fs-32 body-font fw-bold">Rs. 39,900 <span
-                                    class="black-clr body-font fw-500 fs-14">/4 Nights</span></h3>
-                            <h3 class="mb-xl-3 mb-2">
-                                <a href="#" class="fw-semibold d-block black-clr">
-                                    Family Interconnected Suite
-                                </a>
-                            </h3>
-                            <p class="mb-4">
-                                Two spacious rooms with connecting doors, ideal for families. Overlooks lush gardens
-                                and offers all modern amenities.
-                            </p>
-                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
-                                Room Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="luxries-room-item wow fadeInLeft" data-wow-delay=".6s">
-                    <a href="#" class="thumb d-block w-100 overflow-hidden">
-                        <img src="assets/img/rooms/sample.webp" alt="img" class="w-100 overflow-hidden">
-                    </a>
-                    <div class="content">
-                        <ul class="blog-admin d-flex align-items-center justify-content-center gap-3">
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/square-white.png" alt="img" class="white-icon"> 260sq
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/double-bed-white.png" alt="img" class="white-icon"> 2 Beds
-                            </li>
-                            <li class="d-flex align-items-center gap-1 black-clr fs-14 fw-500">
-                                <img src="assets/img/icon/guests-white.png" alt="img" class="white-icon"> 4 Guests
-                            </li>
-                        </ul>
-                        <div class="boxes">
-                            <h3 class="theme2-clr mb-xxl-1 mb-0 fs-32 body-font fw-bold">Rs. 28,000 <span
-                                    class="black-clr body-font fw-500 fs-14">/4 Nights</span></h3>
-                            <h3 class="mb-xl-3 mb-2">
-                                <a href="#" class="fw-semibold d-block black-clr">
-                                    Premium Garden Suite
-                                </a>
-                            </h3>
-                            <p class="mb-4">
-                                Elegant suite with garden access, perfect for guests who love nature and
-                                tranquility. Includes complimentary WiFi and breakfast.
-                            </p>
-                            <a href="#" class="theme-btn fw-normal text-capitalize gap-1 py-3 px-6">
-                                Room Details
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
