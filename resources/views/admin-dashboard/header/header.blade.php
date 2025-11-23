@@ -3,8 +3,8 @@
 ***********************************-->
 <div class="nav-header">
     <a href="/" class="brand-logo">
-        <img src="{{ asset('assets/img/logo.png') }}" alt="logo"
-            style="width: 40px; padding-top: 10px; border-radius: 9999px;">
+        <img src="{{ asset('assets/img/logo-white.png') }}" alt="logo"
+            style="width: 40px; padding-top: 10px;">
     </a>
     <div class="nav-control">
         <div class="hamburger">
@@ -173,7 +173,7 @@
                     <span class="nav-text">Room Types</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a href="{{ route('tour-packages.index') }}" class="" aria-expanded="false">
                     <div class="menu-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -183,7 +183,7 @@
                     </div>
                     <span class="nav-text">Tour Packages</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{ route('dashboard.account') }}" class="" aria-expanded="false">
                     <div class="menu-icon">

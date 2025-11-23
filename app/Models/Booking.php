@@ -73,7 +73,7 @@ class Booking extends Model
     public static function generateBookingReference()
     {
         do {
-            $reference = 'KC' . strtoupper(substr(uniqid(), -8));
+            $reference = 'LH' . strtoupper(substr(uniqid(), -8));
         } while (self::where('booking_reference', $reference)->exists());
 
         return $reference;

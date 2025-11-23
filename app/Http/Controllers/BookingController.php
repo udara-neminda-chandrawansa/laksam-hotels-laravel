@@ -402,7 +402,7 @@ class BookingController extends Controller
             "cancel_url" => route('payment.cancel'), // Route for handling cancel URL
             "notify_url" => route('payment.api.notify'), // Route for handling notify URL
             "order_id" => $id,
-            "items" => "KC Booking",
+            "items" => "LH Booking",
             "currency" => "LKR",
             "amount" => number_format((float) $fullTotal, 2, '.', ''),
             "first_name" => $booking->guest_name,
