@@ -94,14 +94,14 @@
                             <label for="checkin" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Check
                                 In:</label>
                             <div class="input-area">
-                                <input type="date" id="check-in" name="check_in">
+                                <input type="date" id="check-in" name="check_in" value="{{ date('Y-m-d') }}" min="{{ date('Y-m-d') }}">
                             </div>
                         </div>
                         <div class="book-form mb-3">
                             <label for="checkout" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Check
                                 Out:</label>
                             <div class="input-area">
-                                <input type="date" id="check-out" name="check_out">
+                                <input type="date" id="check-out" name="check_out" value="{{ date('Y-m-d', strtotime('+1 day')) }}" min="{{ date('Y-m-d', strtotime('+1 day')) }}">
                             </div>
                         </div>
                         <div class="book-form mb-3">

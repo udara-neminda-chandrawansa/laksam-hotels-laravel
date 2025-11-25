@@ -99,11 +99,11 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">Check-in</label>
-                                    <input type="date" name="check_in_date" class="form-control" value="{{ $bookingData['check_in'] ?? '' }}" required>
+                                    <input type="date" name="check_in_date" class="form-control" min="{{ date('Y-m-d') }}" value="{{ $bookingData['check_in'] ?? '' }}" required>
                                 </div>
                                 <div class="col-md-3">
                                     <label class="form-label">Check-out</label>
-                                    <input type="date" name="check_out_date" class="form-control" value="{{ $bookingData['check_out'] ?? '' }}" required>
+                                    <input type="date" name="check_out_date" class="form-control" min="{{ date('Y-m-d', strtotime('+1 day')) }}" value="{{ $bookingData['check_out'] ?? '' }}" required>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label">Special Requests</label>
