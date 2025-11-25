@@ -65,7 +65,7 @@
                 <div class="col-lg-8">
                     <div class="card shadow">
                         <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Guest Details</h4>
+                            <h4 class="mb-0 text-white">Guest Details</h4>
                         </div>
                         <div class="card-body">
                             <div class="row g-3">

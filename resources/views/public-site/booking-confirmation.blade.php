@@ -19,7 +19,7 @@
             <div class="col-lg-8">
                 <div class="card shadow mb-4">
                     <div class="card-header bg-success text-white">
-                        <h4 class="mb-0">Thank you for your booking!</h4>
+                        <h4 class="mb-0 text-white">Thank you for your booking!</h4>
                     </div>
                     <div class="card-body">
                         <div class="mb-4">
