@@ -332,7 +332,7 @@
                                 Pay any way choose , No matter whether its cash or an international payment card ,
                                 we support all options.
                             </p>
-                            <div class="d-flex align-items-center gap-xxl-3 gap-2 flex-wrap">
+                            {{-- <div class="d-flex align-items-center gap-xxl-3 gap-2 flex-wrap">
                                 <button type="button">
                                     <img src="{{ asset('assets/img/hero/payneer.png') }}" alt="payment">
                                 </button>
@@ -348,7 +348,8 @@
                                 <button type="button">
                                     <img src="{{ asset('assets/img/hero/stripe.png') }}" alt="payment">
                                 </button>
-                            </div>
+                            </div> --}}
+                            <a href="https://www.payhere.lk" target="_blank"><img src="https://www.payhere.lk/downloads/images/payhere_long_banner_dark.png" alt="PayHere" width="250"/></a>
                         </div>
                     </div>
                 </div>
