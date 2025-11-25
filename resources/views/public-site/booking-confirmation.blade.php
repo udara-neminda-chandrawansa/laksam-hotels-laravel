@@ -24,7 +24,8 @@
                     <div class="card-body">
                         <div class="mb-4">
                             <h5 class="mb-2">Booking Reference: <span class="badge bg-primary">{{ $booking->booking_reference }}</span></h5>
-                            <p class="mb-1"><strong>Status:</strong> <span class="badge bg-{{ $booking->status_badge }}">{{ ucfirst($booking->status) }}</span></p>
+                            <p class="mb-1"><strong>Booking Status:</strong> <span class="badge bg-{{ $booking->status_badge }}">{{ ucfirst($booking->status) }}</span></p>
+                            <p class="mb-1"><strong>Payment Status:</strong> <span class="badge bg-{{ $booking->payment->payment_status === 'paid' ? 'success' : ($booking->payment->payment_status === 'failed' ? 'danger' : 'warning') }}">{{ ucfirst($booking->payment->payment_status) }}</span></p>
                         </div>
                         <table class="table table-bordered">
                             <tbody>
@@ -81,8 +82,15 @@
                         <div class="alert alert-info mt-4">
                             <i class="fa fa-info-circle"></i> A confirmation email has been sent to <strong>{{ $booking->guest_email }}</strong>.
                         </div>
-                        <div class="text-center mt-3">
+                        <div class="text-center mt-3 d-flex gap-3 justify-content-end">
                             <a href="/" class="btn btn-outline-primary">Back to Home</a>
+
+                            <form action="{{ route('booking.payment', $booking->id) }}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-success">
+                                    Pay Online
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
