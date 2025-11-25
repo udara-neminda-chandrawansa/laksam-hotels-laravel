@@ -107,7 +107,7 @@
                         <div class="book-form mb-3">
                             <label for="adult" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Adult:</label>
                             <div class="input-area">
-                                <select id="adults3" name="adults">
+                                <select id="adults3" name="adults" class="no-nice-select">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -119,7 +119,7 @@
                         <div class="book-form mb-4">
                             <label for="child" class="fw-500 fs-14 black-clr d-block mb-lg-2 mb-1">Children:</label>
                             <div class="input-area">
-                                <select id="children" name="children">
+                                <select id="children" name="children" class="no-nice-select">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>

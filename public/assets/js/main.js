@@ -87,7 +87,7 @@ CSS TABLE OF CONTENTS
 		new WOW().init();
 
 		//>> Nice Select Start <<//
-		$("select").niceSelect();
+		$("select:not(.no-nice-select)").niceSelect();
 
 		//>> Testimonial Slider Start <<//
 		if ($(".testimonial-slider").length > 0) {
