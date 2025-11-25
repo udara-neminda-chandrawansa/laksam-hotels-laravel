@@ -125,11 +125,15 @@ CSS TABLE OF CONTENTS
 		//Banner Slider1
 		const heroSLider = new Swiper(".hero-slider", {
 			// Optional parameters
-			speed: 4500,
+			speed: 17500,
 			loop: true,
 			slidesPerView: 1,
 			simulateTouch: false,
-			autoplay: true,
+			autoplay: {
+				delay: 0,              // or whatever delay you use
+				disableOnInteraction: false,
+				pauseOnMouseEnter: true,   // ⬅️ THIS stops autoplay on hover
+			},
 			effect: "fade",
 			breakpoints: {
 				1600: {

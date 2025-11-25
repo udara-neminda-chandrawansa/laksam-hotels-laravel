@@ -21,7 +21,7 @@
 
                         </div>
                         <div class="date-picker-container">
-                            <form id="booking-form" action="{{ route('booking.create') }}" method="POST"
+                            <form action="{{ route('booking.create') }}" method="GET"
                                 class="d-flex flex-lg-nowrap justify-content-lg-between justify-content-center flex-wrap align-items-end gap-xxl-4 gap-xl-3 gap-2">
                                 @csrf
                                 <div class="form-group">
@@ -92,7 +92,7 @@
 
                         </div>
                         <div class="date-picker-container">
-                            <form id="booking-form2" action="{{ route('booking.create') }}" method="POST"
+                            <form action="{{ route('booking.create') }}" method="GET"
                                 class="d-flex flex-lg-nowrap justify-content-lg-between justify-content-center flex-wrap align-items-end gap-xxl-4 gap-xl-3 gap-2">
                                 @csrf
                                 <div class="form-group">
